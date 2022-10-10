@@ -8,15 +8,6 @@ public class HWTests {
     	/* return a 2D array that contains all the port numbers [0] and dates [1] for
         the search ID
         */
-        for (int i = 0; i < records.length; i++){
-            String ID = records[i].substring(0, 5);
-            for (int j = 0; j < results[0].length; j++) {
-                if (ID.equals(searchID)) {
-                    results[0][j] = records[i].substring(5, 9);
-                    results[1][j] = records[i].substring(9);
-                }
-            }
-        }
         return results;
     }
     // 如果ID是Simon就把它加入二维数组
