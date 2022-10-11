@@ -3,37 +3,25 @@ package Homework;
 import java.util.Scanner;
 
 public class HWTests {
-    public static String[][] Search(String searchID, String[] records){
-        String [][] results = new String[records.length][2];
-    	/* return a 2D array that contains all the port numbers [0] and dates [1] for
-        the search ID
-        */
-        return results;
-    }
-    // 如果ID是Simon就把它加入二维数组
-
+    // 2D arr exercises
     public static void main(String[] args) {
+        // 1. 公司年销售额总和
         Scanner input = new Scanner(System.in);
-        String searchID = input.nextLine();
-        String[] records = new String[7];
-        for(int x = 0; x < 7; x++){
-            records[x] = input.nextLine();
-        }
-        String[][] userDets = Search(searchID, records);
-        int count = 0;
-        if(userDets[0][0] == null){
-            System.out.println("no records");
-        }else{
-            String port, time, month, day, year = "";
-            while(count < userDets.length && userDets[count][0] != null){
-                port = userDets[count][0];
-                time = userDets[count][1].substring(0,5);
-                month = userDets[count][1].substring(5,8);
-                day = userDets[count][1].substring(8,10);
-                year = userDets[count][1].substring(10);
-                System.out.println(port + " " + time + " " + month + " " + day + " " + year);
-                count ++;
+        int result = 0;
+        int[][] myArr = new int[4][3];
+        for (int i = 0; i < 4; i++){
+            for (int j = 0; j < 3; j++){
+                System.out.print("输入第" + (i+1) + "季度" + "第" + (j+1) + "个月的销售额");
+                myArr[i][j] = input.nextInt();
             }
         }
+
+        for (int i = 0; i < 4; i++){
+            for (int j = 0; j < 3; j++){
+                result = result + myArr[i][j];
+            }
+        }
+
+        System.out.println("年度销售总额: " + result);
     }
 }
