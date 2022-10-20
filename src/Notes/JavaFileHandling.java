@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class JavaFileHandling {
     public static void main(String[] args) {
-        File file = new File("/d/GitRepos/learngit/readme.txt");
+        File file = new File("D:\\GitRepos\\learngit\\readme.txt");
         BufferedReader reader = null;
         try{
             reader = new BufferedReader(new FileReader(file));
