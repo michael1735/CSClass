@@ -4,7 +4,7 @@ import java.io.*;
 
 public class FileHandlingHW {
     public static void main(String[] args) {
-        File file = new File("D:\\CS±Ê¼Ç\\test.txt");
+        File file = new File("D:\\GitRepos\\learngit\\readme.txt");
         BufferedReader bf = null;
         String strLine = "";
         String prevStr = "";
