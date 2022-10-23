@@ -2,7 +2,7 @@ package Homework;
 
 import java.util.Scanner;
 
-import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
 
 public class ACSLIntermediate {
     public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class ACSLIntermediate {
         String[] inputStr = new String[5];
         // String[] inputNumber = new String[5];
         // String[] inputLength = new String[5];
-        int[][] inputContents = new int[5][2];
+        long[][] inputContents = new long[5][2];
         for (int i = 0; i < 5; i++){
             inputStr[i] = input.nextLine();
         }
@@ -27,11 +27,11 @@ public class ACSLIntermediate {
                 //	at java.base/java.lang.Integer.parseInt(Integer.java:668)
                 //	at java.base/java.lang.Integer.parseInt(Integer.java:784)
                 //	at Homework.ACSLIntermediate.main(ACSLIntermediate.java:25)
-                inputContents[i][j] = parseInt(temp[j].trim()); // <-- 这一行,我觉得我已经把空格去了
+                inputContents[i][j] = parseLong(temp[j].trim()); // <-- 这一行,我觉得我已经把空格去了
             }
         }
-        for (int[] i : inputContents){
-            for (int j : i){
+        for (long[] i : inputContents){
+            for (long j : i){
                 System.out.println(j);
             }
         }
