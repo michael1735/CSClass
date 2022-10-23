@@ -2,8 +2,6 @@ package Homework;
 
 import java.util.Scanner;
 
-import static java.lang.Long.parseLong;
-
 public class ACSLIntermediate {
     public static void main(String[] args) {
         /*
