@@ -6,21 +6,16 @@ public class FileHandlingHW {
     public static void main(String[] args) {
         File file = new File("D:\\GitRepos\\learngit\\readme.txt");
         BufferedReader bf = null;
-        String strLine = "";
-        String prevStr = "";
 
         try{
             bf = new BufferedReader(new FileReader(file));
+            String strLine;
             while ((strLine = bf.readLine()) != null){
-                if (prevStr.length() < strLine.length()){
-                    prevStr = strLine;
-                }
+                System.out.println(strLine + "\n");
             }
-            System.out.println("The longest str is: " + prevStr);
-        } catch (FileNotFoundException e) {
-            System.out.println("file not found");
-        } catch (IOException e) {
-            System.out.println("an IO error occurs");
+            bf.close();
+        } catch (IOException e){
+            System.out.println("Interrrupted I/O operations");
         }
     }
 }
