@@ -14,7 +14,7 @@ public class LowestScoreCode {
         String thisID, thisScore, thisDate;
         String[] retArray = new String[2];
         int counter = 0;
-        int minScore = parseInt(records[0].substring(12));
+        int minScore = 999;
         int count = 0;
 
         while (counter < 9) {
@@ -24,9 +24,9 @@ public class LowestScoreCode {
             if (thisID.equals(searchID)) {
                 if (minScore > parseInt(thisScore)) {
                     minScore = parseInt(thisScore);
+                    retArray[1] = thisDate;
                 }
                 retArray[0] = valueOf(minScore);
-                retArray[1] = thisDate;
                 count++;
             }
             counter++;
