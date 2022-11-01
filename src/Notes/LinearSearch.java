@@ -12,7 +12,7 @@ public class LinearSearch {
         boolean found = false;
         int i = 0;
 
-        while (i < size && found == false) {
+        while (i < size && !found) {
             if (myList[i] == searchValue) {
                 found = true;
             } else {
@@ -20,7 +20,7 @@ public class LinearSearch {
             }
         }
 
-        if (found == true) {
+        if (found) {
             System.out.println("Value found at index " + i);
         } else {
             System.out.println("Value not found");
