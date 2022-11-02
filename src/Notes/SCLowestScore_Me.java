@@ -3,7 +3,6 @@ package Notes;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
-import static java.lang.String.valueOf;
 
 // 我的代码 问题在于我把字符串转换成了整数并且存了个值作比较, 然而并不需要, 只需要在条件里写就行了, 那样
 // 省去了一堆代码
