@@ -5,6 +5,7 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 
+// ÎÒµÄ´úÂë
 public class LowestScoreCode {
     /*
     	Add your function lowestScore() here. It will return a 2D string array. It will be sent 2 parameters: memberID and the array containing all the records.
