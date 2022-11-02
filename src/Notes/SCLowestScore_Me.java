@@ -16,27 +16,20 @@ public class SCLowestScore_Me {
         String thisID, thisScore, thisDate;
         String[] retArray = new String[2];
         int counter = 0;
-        int minScore = 999;
-        int count = 0;
+        retArray[0] = "-1";
+        retArray[1] = "-1";
 
         while (counter < 9) {
             thisID = records[counter].substring(0, 4);
             thisScore = records[counter].substring(12);
             thisDate = records[counter].substring(4, 12);
             if (thisID.equals(searchID)) {
-                if (minScore > parseInt(thisScore)) {
-                    minScore = parseInt(thisScore);
+                if (retArray[0].equals("-1") || parseInt(retArray[0]) > parseInt(thisScore)) {
+                    retArray[0] = thisScore;
                     retArray[1] = thisDate;
                 }
-                retArray[0] = valueOf(minScore);
-                count++;
             }
             counter++;
-        }
-
-        if (count == 0) {
-            retArray[0] = "-1";
-            retArray[1] = "-1";
         }
         return retArray;
     }
