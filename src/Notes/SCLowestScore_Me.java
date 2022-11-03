@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 // 我的代码 问题在于我把字符串转换成了整数并且存了个值作比较, 然而并不需要, 只需要在条件里写就行了, 那样
-// 省去了一堆代码
+// 省去了一堆代码: 已改正
 public class SCLowestScore_Me {
     /*
     	Add your function lowestScore() here. It will return a 2D string array. It will be sent 2 parameters: memberID and the array containing all the records.
