@@ -13,7 +13,6 @@ public class SCLightenImage {
     */
     public static boolean Lighten(int n) {
         boolean burnt = false;
-        outer:
         for (int i = 0; i < n; i++) {
             for(int j = 0; j < 4; j++) {
                 for (int k = 0; k < 4; k++) {
@@ -24,7 +23,7 @@ public class SCLightenImage {
                     picture[j][k] += (picture[j][k] * 0.1) + 0.9;
                     if (picture[j][k] >= 255) {
                         burnt = true;
-                        break outer;
+                        picture[j][k] = 255;
                     }
                 }
             }
