@@ -17,36 +17,21 @@ public class Temperatures {
             arr[i] = t;
         }
 
-        int posClosest = Integer.MAX_VALUE;
-        int negClosest = Integer.MIN_VALUE;
-
         // Write an answer using System.out.println()
         // To debug: System.err.println("Debug messages...");
 
-        for (int temp : arr) {
-            if (temp > 0) {
-                if (posClosest > temp) {
-                    posClosest = temp;
-                }
-            } else {
-                if (negClosest < temp) {
-                    negClosest = temp;
+        if (n == 0) {
+            System.out.println("0");
+        } else {
+            int min = Integer.MAX_VALUE;
+
+            for (int temperature : arr) {
+                if (Math.abs(temperature) < Math.abs(min) || (temperature == -min && temperature > 0)) {
+                    min = temperature;
                 }
             }
+            System.out.println(min);
         }
-
-        int result;
-
-        if (posClosest > Math.abs(negClosest)) {
-            // 条件改成了 >, 这两个测试数据没问题了
-            result = posClosest;
-        } else if (posClosest == Math.abs(negClosest)) {
-            result = posClosest;
-        } else {
-            result = negClosest;
-        }
-
-        System.out.println(result);
     }
 }
 // 7 5 9 14
