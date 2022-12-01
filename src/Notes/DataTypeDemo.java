@@ -13,9 +13,9 @@ public class DataTypeDemo {
      * - string
      * - date
      *
-     * 3. UDT
+     * 3. UDT(composite data type, 复合型)
      * user-defined-data type
-     * 实际的数据类型: record data type(composite data type, 复合型)
+     * 实际的数据类型: record data type
      *
      * pseudocode:
      * TYPE <Identifier></Identifier>
@@ -41,7 +41,14 @@ public class DataTypeDemo {
      *
      * OUTPUT Person1.Height
      */
+    public record Person(
+            String name,
+            String ability,
+            String email,
+            int age
+    ){
 
+    }
     public static void main(String[] args) {
         record Employee(
                 int id,
@@ -54,6 +61,9 @@ public class DataTypeDemo {
         Employee e1 = new Employee(10, "Jaslo", "Jaslo@whbc2000.com", 24);
 
         System.out.println(e1);
+
+        Person p1 = new Person("Jaslo", "Programming", "JasloC@whbc2000.com", 23);
+        System.out.println(p1);
     }
 
     /*
@@ -70,6 +80,13 @@ public class DataTypeDemo {
     FILO/LIFO
 
     queue 队列
-    FIFO-first in, first out (& last in last out)
+    FIFO-first in, first
+    out (& last in last out)
+    FrontPointer&EndPointer
+    frontPointer -> 指向-1
+    endPointer -> 如果队列为空, 指向-1
+    circular:?
+
+    DECLARE stack:ARRAY OF INTEGER
      */
 }
