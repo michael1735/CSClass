@@ -1,7 +1,5 @@
 package Notes;
 
-import java.util.Arrays;
-
 public class PassByValAndPassByRef {
     public static void main(String[] args) {
         // java对传参的定义是: all data is passed by value
