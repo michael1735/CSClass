@@ -76,10 +76,12 @@ class Vehicle {
     public String getName() {
         return name;
     }
+
     @Override
     public String toString() {
         return "Vehicle[name = " + name + "]";
     }
+    // toString 方法在输出对象名时会自动调用(用@Override来指示重载)
 }
 
 class VehicleProcessor {
