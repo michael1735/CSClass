@@ -45,12 +45,13 @@ public class PassByValAndPassByRef {
         System.out.println("Another obj = " + anotherRef);
 
         // passing values to methods
+
         VehicleProcessor processor = new VehicleProcessor();
         Vehicle vehicle = new Vehicle("Some name");
         System.out.println("Before calling method (vehicle = " + vehicle + ")");
-        processor.process(vehicle);
+        processor.process(vehicle); // 保留更改
         System.out.println("After calling method (vehicle = " + vehicle + ")");
-        processor.processWithReferenceChange(vehicle);
+        processor.processWithReferenceChange(vehicle); // 更改不会保留
         System.out.println("After calling reference-change method (vehicle = " + vehicle + ")");
     }
 
@@ -85,16 +86,33 @@ class Vehicle {
 }
 
 class VehicleProcessor {
+    /**
+     * In the former case,
+     * the address of the Vehicle created outside the method is copied to the argument of the method,
+     * and thus both point to the same Vehicle object.
+     * If this pointer is dereferenced (which occurs when the fields of the object are accessed or changed),
+     * the same object is changed. In the latter case, when we try to reassign the argument with a new address,
+     * the change is lost because the argument is only a copy of the address of the original object,
+     * and thus, once the method scope is exited, the copy is lost.
+     */
     public void process(Vehicle vehicle) {
         System.out.println("Entered method (vehicle = " + vehicle + ")");
         vehicle.setName("A changed name");
         System.out.println("Changed vehicle within method (vehicle = " + vehicle + ")");
         System.out.println("Leaving method (vehicle = " + vehicle + ")");
     }
+    // A secondary principle can be formed from this mechanism in Java:
+    // Do not reassign arguments passed into a method
 
+    /*
+    How to Refactor:
+    1. Create a local variable and assign the initial value of your parameter.
+
+    2. In all method code that follows this line, replace the parameter with your new local variable.
+     */
     public void processWithReferenceChange(Vehicle vehicle) {
         System.out.println("Entered method (vehicle = " + vehicle + ")");
-        vehicle = new Vehicle("A new name");
+        vehicle = new Vehicle("A new name"); // 重新赋值一个新的地址,
         System.out.println("New vehicle within method (vehicle = " + vehicle + ")");
         System.out.println("Leaving method (vehicle = " + vehicle + ")");
     }
