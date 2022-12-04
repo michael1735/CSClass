@@ -21,6 +21,7 @@ public class SCLightenImage {
                     // int加上double/float是可以直接计算的, 算出来的结果会直接四舍五入
                     // *1.1就是原数据加原数据*0.1,
                     picture[j][k] += (picture[j][k] * 0.1) + 0.9;
+                    // 上面这一行会出一些小问题
                     if (picture[j][k] >= 255) {
                         burnt = true;
                         picture[j][k] = 255;
