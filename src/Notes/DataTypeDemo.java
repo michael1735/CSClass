@@ -88,5 +88,12 @@ public class DataTypeDemo {
     circular:?
 
     DECLARE stack:ARRAY OF INTEGER
+
+    linked-list
+    链表
+    linear data structure
+    是线性结构, 但是不是线性存储(按地址顺序)的
+    以空指针结束
      */
+    // 创建节点
 }
