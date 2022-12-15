@@ -95,22 +95,33 @@ public class AGRAM {
                     listOfIndices.add(i);
                 }
             }
-//            System.out.println(listOfIndices);
+//            System.out.println(listOfIndices); // 测试输出行
+//            System.out.println(thisRank);
+//            System.out.println(thisSuit); // test
             String outRank = toLetter(minRank);
             for (int i = 0; i < listOfIndices.size(); i++) {
                 if (thisSuit.get(listOfIndices.get(i)).equals("C")) {
+//                    System.out.println(thisSuit); // testLine
+//                    System.out.println(listOfIndices.get(i)); //test
                     returnStr = outRank + "C";
-                    break;
+                    break; // 这里的break导致每次找输出的字母的时候都只会输出第一个
                 } else if (thisSuit.get(listOfIndices.get(i)).equals("D")) {
+//                    System.out.println(thisSuit); // testLine
+//                    System.out.println(listOfIndices.get(i)); // testLine
                     returnStr = outRank + "D";
                     break;
                 } else if (thisSuit.get(listOfIndices.get(i)).equals("H")) {
+//                    System.out.println(thisSuit); // testLine
+//                    System.out.println(listOfIndices.get(i));
                     returnStr = outRank + "H";
                     break;
                 } else {
+//                    System.out.println(thisSuit); // testLine
+//                    System.out.println(listOfIndices.get(i));
                     returnStr = outRank + "S";
                     break;
                 }
+                // C, D, H, S是按字母表顺序排的
             }
         }
         return returnStr;
@@ -186,16 +197,23 @@ public class AGRAM {
             return Integer.parseInt(card.substring(0, 1));
     }
     public static void main(String[] args) {
-        String line1 = "5D, 2D, 6H, 9D, TD, 6H";
-        String line2 = "TC, AC, KC, QH, JS, TD";
-        String line3 = "3D, 4H, 5C, 6S, 2D, 7H";
-        String line4 = "KS, TH, QC, 3D, 9H, 3H";
-        String line5 = "AC, AD, KH, AS, KS, QS";
+        String line1 = "2H, 3S, 4D, AH, 9H, AC";
+        String line2 = "7D, 3D, 8H, 5S, KC, AD";
+        String line3 = "TS, AH, AC, AD, JC, QH";
+        String line4 = "8C, 3D, 4H, 9S, TD, QS";
+        String line5 = "AS, KD, TC, 5H, 5D, 6C";
 
         AGRAM ln1 = new AGRAM(line1);
         AGRAM ln2 = new AGRAM(line2);
         AGRAM ln3 = new AGRAM(line3);
         AGRAM ln4 = new AGRAM(line4);
         AGRAM ln5 = new AGRAM(line5);
+
+        AGRAM ln6 = new AGRAM("5D, 2D, 6H, 9D, TD, 6H");
+        AGRAM ln7 = new AGRAM("TC, AC, KC, QH, JS, TD");
+        AGRAM ln8 = new AGRAM("3D, 4H, 5C, 6S, 2D, 7H");
+        AGRAM ln9 = new AGRAM("KS, TH, QC, 3D, 9H, 3H");
+        AGRAM ln10 = new AGRAM("AC, AD, KH, AS, KS, QS");
     }
 }
+// 不知道怎么写了, 写斐波那契钟去了
