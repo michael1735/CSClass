@@ -1,4 +1,4 @@
-package Notes;
+package 算法;
 
 public class Note0908 {
     // 高二默认所有程序都要写prompt

@@ -1,4 +1,4 @@
-package Notes;
+package 算法;
 
 import java.util.Scanner;
 
