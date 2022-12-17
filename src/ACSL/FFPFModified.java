@@ -9,7 +9,6 @@ public class FFPFModified {
         int k = 2;
         int m = sc.nextInt();
         ArrayList<Integer> existingFactors = new ArrayList<Integer>();
-        int count = 0;
         while (k <= m) {
             if (k == m) {
                 System.out.println(m);
