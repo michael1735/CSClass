@@ -12,7 +12,9 @@ public class FFPFModified {
         while (k <= m) {
             if (k == m) {
                 System.out.println(m);
-                existingFactors.add(m);
+                if (!existingFactors.contains(m))
+                    existingFactors.add(m); // 防止出现16807这种7的倍数或者更广义的说, 次方
+                // 次方情况下如果不加这个判断就会加入两个相同的质因数进去
                 break;
             } else if (m % k == 0) {
                 System.out.println(k + " * ");
