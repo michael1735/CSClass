@@ -1,4 +1,4 @@
-package Ëã·¨;
+package Algorithms;
 
 public class PassByValAndPassByRef {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package 算法;
+package Algorithms;
 
 public class DynamicProgramming {
     // 核心是记住解决过的子问题的解
