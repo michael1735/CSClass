@@ -20,7 +20,7 @@ public class SortingAlgsCollection {
                 inputArr[insertIndex + 1] = inputArr[insertIndex];
                 insertIndex--;
             }
-            //当while循环结束，说明已经找到这个数此时待插入处的索引，不符合，所以待插入的位置应为insertIndex+1;
+            //当while循环结束，说明已经找到这个数此时待插入处的索引，待插入的位置应为insertIndex+1;
             //比如当索引为-1时，退出，则值应插入0处
             inputArr[insertIndex + 1] = insertValue;
         }
