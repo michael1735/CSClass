@@ -1,10 +1,5 @@
 package ACSL;
 
-import org.w3c.dom.css.CSSStyleSheet;
-
-import javax.imageio.ImageTranscoder;
-import java.util.Stack;
-
 public class str_2_sr {
     public static void main(String[] args) {
         String in1 = "523.125, 6, 2"; // 523.13
@@ -45,13 +40,15 @@ public class str_2_sr {
         doubleMagnitude = roundDouble(doubleMagnitude, decimal);
         magnitude = String.valueOf(doubleMagnitude);
         StringBuilder tempMagnitude = new StringBuilder();
-        if (magnitude.length() < length) {
-            int i = magnitude.length();
+        boolean executed = false;
+        if (magnitude.length() < length) { //
+            int i = magnitude.length() + 1;
             tempMagnitude.append(magnitude);
             while (i < length) {
                 tempMagnitude.insert(0, "#");
                 i++;
             }
+            executed = true;
         } else if (magnitude.length() > length) {
             if (length % 2 == 0) {
                 for (int i = 0; i < length; i++) {
@@ -70,8 +67,11 @@ public class str_2_sr {
                     }
                 }
             }
+            executed = true;
         }
-        magnitude = tempMagnitude.toString();
+        if (executed) {
+            magnitude = tempMagnitude.toString();
+        }
         return sign + magnitude;
     }
 
