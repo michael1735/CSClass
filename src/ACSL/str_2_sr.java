@@ -65,26 +65,34 @@ public class str_2_sr {
         magnitude = String.valueOf(doubleMagnitude);
         StringBuilder tempMagnitude = new StringBuilder();
         boolean executed = false;
+        int i = magnitude.length();
+        if (sign.equals("+") || sign.equals("-")) {
+            i++;
+        }
         if (magnitude.length() < length) { //
-            int i = magnitude.length() + 1;
             tempMagnitude.append(magnitude);
             while (i < length) {
-                tempMagnitude.insert(0, "#");
-                i++;
+                if (tempMagnitude.substring(tempMagnitude.length() - 1).equals("0")) {
+                    tempMagnitude.append("0");
+                    i++;
+                } else {
+                    tempMagnitude.insert(0, "#");
+                    i++;
+                }
             }
             executed = true;
         } else if (magnitude.length() > length) {
             if (length % 2 == 0) {
-                for (int i = 1; i <= length; i++) {
-                    if (i == length / 2) {
+                for (int j = 1; j <= length; j++) {
+                    if (j == length - decimal) {
                         tempMagnitude.append(".");
                     } else {
                         tempMagnitude.append("#");
                     }
                 }
             } else {
-                for (int i = 0; i < length; i++) {
-                    if (i == length / 2 + 1) {
+                for (int j = 0; j < length; j++) {
+                    if (j == length / 2 + 1) {
                         tempMagnitude.append(".");
                     } else {
                         tempMagnitude.append("#");
