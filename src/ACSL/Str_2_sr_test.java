@@ -3,7 +3,7 @@ package ACSL;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class Str_2_sr {
+public class Str_2_sr_test {
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
         /*String ln1 = scan.nextLine();
