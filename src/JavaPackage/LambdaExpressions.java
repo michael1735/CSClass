@@ -49,4 +49,8 @@ public class LambdaExpressions {
     private int operate(int a, int b, MathOperation mathOperation) {
         return mathOperation.operation(a, b);
     }
+
+    // java的lambda还没看懂, 学完继承之类的特性之后再弄
+    // lambda expressions don't have any shadowing issues
+    // they can capture variables, they have the same access to local variables of the enclosing scope
 }
