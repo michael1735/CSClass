@@ -35,7 +35,7 @@ public enum Planet {
     /*
     In addition to its properties and constructor, Planet has methods that allow you to retrieve the surface gravity
     and weight of an object on each planet. Here is a sample program that takes your weight on earth (in any unit) and
-    calculates and prints your weight on all of the planets (in the same unit):
+    calculates and prints your weight on all the planets (in the same unit):
      */
     Planet(double mass, double radius) {
         this.mass = mass;
