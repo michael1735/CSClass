@@ -52,6 +52,10 @@ public class AnnotationDefinition {
     The body of the previous annotation definition contains annotation type element declarations,
     which look a lot like methods. Note that they can define optional default values.
      */
+    public static void main(String[] args) {
+        Person person = new Person(10, "human", "bob");
+        System.out.println(person.getAge());
+    }
 }
 // now use your newly defined annotation type!!
 @AnnotationDefinition.ClassPreamble(
