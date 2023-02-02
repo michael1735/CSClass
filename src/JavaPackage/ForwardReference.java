@@ -1,4 +1,4 @@
-package Ëã·¨Ìâ;
+package JavaPackage;
 
 public class ForwardReference {
     static {
