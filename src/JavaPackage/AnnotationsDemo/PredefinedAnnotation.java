@@ -40,7 +40,7 @@ public class PredefinedAnnotation {
     // 用于告诉编译器不显示特定警告
     // 如@SuppressWarnings("depreciation")
     // 多个元素可以用数组的语法
-    // @SuppressWarnings({"depreciation", "unchecked")
+    // @SuppressWarnings({"depreciation", "unchecked"})
     /*
     常用: all(所有)
     dep-ann(与注释里的@depreciated相关的警告)
@@ -50,7 +50,7 @@ public class PredefinedAnnotation {
     unused(未使用变量, 函数, 类...)
     unchecked(未检查类型, 常出现在泛型的使用中)
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "unused"})
     public void uncheckedTest(Map<String, ?> map) {
         Map<String, String> resultMap = (Map<String, String>) map;
     }
@@ -91,9 +91,11 @@ public class PredefinedAnnotation {
      */
     @FunctionalInterface
     interface AcFunction {
+        @SuppressWarnings("unused")
         void printlnMessage(String message);
     }
     // 那么就可以使用Lambda表达式来表示该接口的一个实现
+    @SuppressWarnings("unused")
     AcFunction acFunction = message -> System.out.println(message);
     /*
     函数式接口里只允许声明一个抽象方法
