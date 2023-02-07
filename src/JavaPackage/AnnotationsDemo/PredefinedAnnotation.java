@@ -103,4 +103,7 @@ public class PredefinedAnnotation {
     函数式接口里允许定义静态方法
     函数式接口里允许定义(@Override)java.lang.Object里的public方法
      */
+
+    // annotations that apply to other annotations
+    
 }
