@@ -58,9 +58,11 @@ public class ADF {
         }
         // 初始化一个数组, 用来存上一步邻接矩阵找出的相同长度不同内容的字符串
         String[] sameLongestSubStr = new String[coordinates.size()];
+        ArrayList<Integer[]> place = new ArrayList<>();
         for (int i = 0; i < coordinates.size(); i++) {
             // 截取
             sameLongestSubStr[i] = str1.substring(coordinates.get(i)[0] - max + 1, coordinates.get(i)[0] + 1);
+            place.add(new Integer[]{coordinates.get(i)[0] - max + 1, coordinates.get(i)[0] + 1});
         }
         // 找按照字母排序更前的那个字串
         // minString用来存compareTo(String anotherString)方法返回的某个字母ascii码更小(i.e.alphabetically first)的字串
@@ -71,22 +73,11 @@ public class ADF {
         for (int i = 1; i < coordinates.size(); i++) {
             if (minString.compareTo(sameLongestSubStr[i]) > 0) {
                 minString = sameLongestSubStr[i];
+                minPos = i;
             }
         }
         longestCommonSubStr.add(minString);
-        // 就这一段有问题
-//        int index1 = 0;
-//        int index2 = 0;
-//        int i = 0;
-//        while (i < str1.length()){ // 尝试找str1和str2中的字符串位置
-//            if (minString.charAt(0) == str1.charAt(i) && minString.charAt(minString.length() - 1) == str1.charAt(i + minString.length() - 1)) {
-//                index1 = i;
-//                return getMaxSameString(str1.substring(0, i), str1.substring(i + minString.length()));
-//            } else {
-//                return "";
-//            }
-//            i++;
-//        }
+//        String leftPartIn1 = str1.substring();
         return minString;
     }
 
