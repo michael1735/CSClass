@@ -1,4 +1,4 @@
-package LuoGu;
+package Practise;
 
 import java.util.Scanner;
 
