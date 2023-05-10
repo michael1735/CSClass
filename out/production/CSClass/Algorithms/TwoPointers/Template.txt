@@ -1,0 +1,14 @@
+对于题目给数组/字符串遍历的时候有用
+
+public void find (int[] list) {
+  var left = 0;
+  var right = list.length - 1;
+
+  //遍历数组
+  while (left <= right) {
+    left++;
+    // 一些条件判断 和处理
+    ... ...
+    right--;
+  }
+}
