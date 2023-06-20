@@ -1,4 +1,4 @@
-package Algorithms.Simulation;
+package Algorithms.SimulationAndBigNumbers.BigNums;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Algorithms.Simulation;
+package Algorithms.SimulationAndBigNumbers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
