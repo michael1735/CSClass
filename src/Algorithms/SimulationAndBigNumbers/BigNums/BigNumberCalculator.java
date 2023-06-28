@@ -2,13 +2,36 @@ package Algorithms.SimulationAndBigNumbers.BigNums;
 
 import java.util.Scanner;
 
+/**
+ * 里面所有的方法都可以改成static + 返回值来让他们可以在外部使用
+ */
 public class BigNumberCalculator {
 
+    /**
+     * Length of the arrays of operators inside a BigNumberCalculator
+     * Can only be used in loops inside the calculation methods if you use the
+     * preset fields to store calculation data
+     */
     private static final int LEN = 1004;
 
-//    int[] a = new int[LEN];
-//    int[] b = new int[LEN];
-//    int[] c = new int[LEN];
+    int[] a = new int[LEN];
+    int[] b = new int[LEN];
+    int[] c = new int[LEN];
+
+    /**
+     * initialize a BigNumberCalculator Object, with the three preset fields inside it
+     * takes three arrays as parameters, the first two are arrays of two operators
+     * @param a The first operator
+     * @param b The second operator
+     * @param c The resulting array
+     */
+    public BigNumberCalculator(int[] a, int[] b, int[] c) {
+        System.arraycopy(a, 0, this.a, 0, a.length);
+        System.arraycopy(b, 0, this.b, 0, b.length);
+        System.arraycopy(c, 0, this.c, 0, c.length);
+    }
+
+    public BigNumberCalculator() { } // 因为a, b, c已经初始化好了我就不再初始化了
 
     private void clear(int[] a) {
         for (int i : a) {
@@ -21,7 +44,13 @@ public class BigNumberCalculator {
     数字的长度可能发生变化，但我们希望同样权值位始终保持对齐（例如，希望所有的个位都在下标 [0]，所有的十位都在下标 [1]……）；
     同时，加、减、乘的运算一般都从个位开始进行（回想小学的竖式运算～），这都给了「反转存储」以充分的理由。
      */
-    void read(int[] a) {
+
+    /**
+     * Reads into an array and this can be changed, return values to the main program
+     * or modify the code change the fields in the BigNumberCalculator Object
+     * @param a An array
+     */
+    int[] readReverse(int[] a) {
         Scanner scanner = new Scanner(System.in);
         String s = scanner.next();
 
@@ -32,6 +61,22 @@ public class BigNumberCalculator {
             // 反转存储
             a[len - 1 - i] = s.charAt(i) - '0';
         }
+        return a; // returns the resulting array
+    }
+
+    // 专对于除法
+    int[] readSeq(int[] a) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.next();
+
+        clear(a);
+
+        int len = s.length();
+        for (int i = 0; i < len; i++) {
+            a[i] = s.charAt(i) - '0';
+        }
+
+        return a;
     }
 
     void print(int[] a) {
@@ -122,5 +167,37 @@ public class BigNumberCalculator {
         }
     }
 
-    // 明天继续高精度-高精度
+    // 2. 高精度 * 高精度
+    void mul(int[] a, int[] b, int[] c) {
+        clear(c);
+
+        // 这里使用LEN - 1的前提条件是，我们前面设置的三个array都是长度为LEN = 1004的
+        for (int i = 0; i < LEN - 1; i++) {
+            // 这里直接计算结果中的从低到高第 i 位，且一并处理了进位
+            // 第 i 次循环为 c[i] 加上了所有满足 p + q = i 的 a[p] 与 b[q] 的乘积之和
+            // 这样做的效果和直接进行上图的运算最后求和是一样的，只是更加简短的一种实现方式
+            for (int j = 0; j <= i; j++) {
+                c[i] += a[j] * b[i - j];
+            }
+            if (c[i] >= 10) {
+                c[i + 1] += c[i] / 10;
+                c[i] %= 10;
+            }
+        }
+    }
+
+    // 高精度除法
+    // 1. 高精 / 低精度
+    // FIXME: 有问题
+    // 除法和其他三则运算的区别在于除法是从高位开始处理
+    void divShort(int[] a, int b, int[] c) {
+        int lenA = a.length;
+        int dividendLeft = 0; // 存储长除法减完剩下的被除数
+        for (int i = 0; i < lenA; i++) {
+            c[i] = (dividendLeft * 10 + a[i]) / b;
+            dividendLeft = (dividendLeft * 10 + a[i]) % b;
+        }
+    }
+
+    // TODO: 再写一个高精度/高精度的
 }
