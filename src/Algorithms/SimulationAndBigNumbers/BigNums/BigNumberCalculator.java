@@ -188,7 +188,6 @@ public class BigNumberCalculator {
 
     // 高精度除法
     // 1. 高精 / 低精度
-    // FIXME: 有问题
     // 除法和其他三则运算的区别在于除法是从高位开始处理
     void divShort(int[] a, int b, int[] c) {
         int lenA = a.length;
@@ -198,6 +197,4 @@ public class BigNumberCalculator {
             dividendLeft = (dividendLeft * 10 + a[i]) % b;
         }
     }
-
-    // TODO: 再写一个高精度/高精度的
 }
