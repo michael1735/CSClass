@@ -1,7 +1,9 @@
+package Algorithms;
+
 public class BubbleSortDemo {
-    public static int[] bubbleSort(int[] array){
+    public static void bubbleSort(int[] array){
        if(array.length == 0 || array.length == 1){
-           return array;
+           return;
        }
        for (int i = 0; i < array.length - 1; i++){
            for (int j = 0; j < array.length - i - 1; j++){
@@ -12,14 +14,13 @@ public class BubbleSortDemo {
                }
            }
        }
-       return array;
     }
 
     public static void main(String[] args) {
         int[] myArray = {10, 20, 30, 40};
         bubbleSort(myArray);
-        for (int i = 0; i < myArray.length; i++){
-            System.out.println(myArray[i]);
+        for (int j : myArray) {
+            System.out.println(j);
         }
     }
 }

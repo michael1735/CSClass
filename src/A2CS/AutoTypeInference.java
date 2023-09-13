@@ -1,4 +1,4 @@
-package JavaTricks;
+package A2CS;
 
 public class AutoTypeInference {
     // 正如同c++有auto, rust有let, java从10开始就有了自动类型推断功能

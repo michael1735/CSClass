@@ -1,4 +1,4 @@
-package JavaTricks;
+package A2CS;
 
 public class tricks {
     public static void main(String[] args) {
