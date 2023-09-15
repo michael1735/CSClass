@@ -1,6 +1,8 @@
-import java.util.*;
+package SimonC_Challenges;
 
-public class Main {
+import java.util.Scanner;
+
+public class InsertionSort {
     static int[] numArray = new int[10];
 
     public static void main(String[] args) {
@@ -37,11 +39,10 @@ public class Main {
                 insertPlace -= 1;
                 System.out.println("Smaller than " + numArray[insertPlace+1]);
             }
-            if (innerNum == 0) {
+            if (insertPlace > -1)
                 System.out.println("Bigger than " + numArray[insertPlace]);
-            } else if (insertPlace == -1) {
+            else if (insertPlace == -1)
                 System.out.println("Smallest item");
-            }
             numArray[insertPlace+1] = insertValue;
         }
     }
