@@ -25,16 +25,13 @@ public class InsertionSort {
 
     static int insertValue, insertPlace;
     public static void insertionSort(){
-        int innerNum;
         // add your code here
         for (int i = 1; i < numArray.length; i++) {
             insertValue = numArray[i];
             insertPlace = i - 1;
             System.out.println("Item to insert = " + insertValue);
 
-            innerNum = 0;
             while (insertPlace >= 0 && insertValue < numArray[insertPlace]) {
-                innerNum++;
                 numArray[insertPlace+1] = numArray[insertPlace];
                 insertPlace -= 1;
                 System.out.println("Smaller than " + numArray[insertPlace+1]);
