@@ -1,4 +1,4 @@
-package SimonC_Challenges;
+package SimonC_Challenges_AlgosNote_DO_NOT_DELETE;
 
 import java.util.Scanner;
 

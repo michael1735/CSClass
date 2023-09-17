@@ -1,48 +1,34 @@
 import java.util.*;
 
 public class Main {
-    static int[] numArray = new int[10];
-
+    static String[] arr = new String[50];
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        for(int x = 0; x < 10; x++){
-            numArray[x] = input.nextInt();
-        }
-        printArray("Original");
-        insertionSort();
-        printArray("\nSorted");
-    }
-    public static void printArray(String text){
-        System.out.println(text);
-        System.out.print("[ ");
-        for(int x = 0; x < 10; x++){
-            System.out.print(numArray[x] + " ");
-        }
-        System.out.println("] \n");
-    }
-
-    static int insertValue, insertPlace;
-    public static void insertionSort(){
-        int innerNum;
         // add your code here
-        for (int i = 1; i < numArray.length; i++) {
-            insertValue = numArray[i];
-            insertPlace = i - 1;
-            System.out.println("Item to insert = " + insertValue);
-
-            innerNum = 0;
-            while (insertPlace >= 0 && insertValue < numArray[insertPlace]) {
-                innerNum++;
-                numArray[insertPlace+1] = numArray[insertPlace];
-                insertPlace -= 1;
-                System.out.println("Smaller than " + numArray[insertPlace+1]);
-            }
-            if (innerNum == 0) {
-                System.out.println("Bigger than " + numArray[insertPlace]);
-            } else if (insertPlace == -1) {
-                System.out.println("Smallest item");
-            }
-            numArray[insertPlace+1] = insertValue;
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextLine();
         }
+        Arrays.sort(arr);
+        String key = sc.nextLine();
+        binarySearch(key);
+    }
+
+    public static void binarySearch(String key) {
+        int start = 0;
+        int end = arr.length - 1;
+        int mid = (start + end) / 2;
+        while (start < end) {
+            if (key.equals(arr[mid])) {
+                System.out.println(key + " is in element " + mid);
+                return;
+            } else if (key.compareTo(arr[mid]) < 0) {
+                end = mid - 1;
+                mid = (start + end) / 2;
+            } else if (key.compareTo(arr[mid]) > 0) {
+                start = mid + 1;
+                mid = (start + end) / 2;
+            }
+        }
+        System.out.println("Unfortunately, " + key + " isn't in the list");
     }
 }
