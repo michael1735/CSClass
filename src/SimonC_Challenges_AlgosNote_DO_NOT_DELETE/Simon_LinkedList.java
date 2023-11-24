@@ -1,3 +1,5 @@
+package SimonC_Challenges_AlgosNote_DO_NOT_DELETE;
+
 import java.util.*;
 
 public class Simon_LinkedList {
