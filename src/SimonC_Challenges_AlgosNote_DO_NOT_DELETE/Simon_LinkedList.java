@@ -73,11 +73,11 @@ public class Simon_LinkedList {
     }
 
     public static boolean addNode(String dataToAdd){
-        if (freePointer == linkedList.length) {
+        if (freePointer == linkedList.length) { // 把node的数据和指针存在下一个数组空闲位置
             return false; // list is full
         }
 
-        if (startPointer == -1) {
+        if (startPointer == -1) { // 如果是第一个放入的元素，直接加，然后跳出
             startPointer = 0;
             linkedList[startPointer] = new node(dataToAdd, -1);
             freePointer++;
@@ -90,7 +90,8 @@ public class Simon_LinkedList {
         int curr = startPointer;
         int prev = -1;
 
-        while (curr != -1 && linkedList[curr].data.compareTo(dataToAdd) < 0) {
+        while (curr != -1 && linkedList[curr].data.compareTo(dataToAdd) < 0) { // 寻找新元素的指针指向
+            // 在linkedList数组中的顺序不是实际的循环顺序, 所以curr == -1代表链表遍历完成
             prev = curr;
             curr = linkedList[curr].pointer;
         }
